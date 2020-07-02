@@ -127,6 +127,7 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 				.collect(Collectors.toList());
 
     return dotimme.stream().max(comparandoSal).get().getId();
+
 	}
 
 	public BigDecimal buscarSalarioDoJogador(Long idJogador) {
@@ -138,11 +139,14 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 
 			return jog.getSalario();
 
-
-
 	}
 
 	public List<Long> buscarTopJogadores(Integer top) {
+		Comparator<Jogador> habilidoso = Comparator
+				.comparingInt(Jogador::getNivelHabilidade)
+				.thenComparingLong(Jogador::getIdTime)
+				.reversed();
+
 		throw new UnsupportedOperationException();
 	}
 
