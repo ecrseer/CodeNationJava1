@@ -49,9 +49,9 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 	}
 
 	public Long buscarCapitaoDoTime(Long idTime) {
+		Time tmtim = buscarTime(idTime);
 
-		if(tims.stream().filter(tms -> tms.getId().equals(idTime))
-				.anyMatch(cap -> cap.getId().equals(null)))
+		if(tmtim.getCapitao()==null)
 			throw new CapitaoNaoInformadoException();
 
 		return buscarTime(idTime).getCapitao();

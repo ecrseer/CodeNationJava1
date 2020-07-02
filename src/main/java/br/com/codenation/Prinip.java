@@ -19,7 +19,8 @@ public class Prinip {
         //System.out.println("Maior id é: "+DMTP.buscarJogadorMaisVelho(2342L));
         //System.out.println("Maior id é: "+DMTP.buscarSalarioDoJogador(433L));
         //System.out.println("Maior id é: "+DMTP.buscarTimes());
-        System.out.println("Maior id é: "+DMTP.buscarMelhorJogadorDoTime(2342L));
+        //DMTP.definirCapitao(433L);
+        System.out.println("Maior id é: "+DMTP.buscarCapitaoDoTime(2342L));
 
     }
 }
