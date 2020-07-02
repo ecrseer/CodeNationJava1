@@ -90,7 +90,13 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 	}
 
 	public Long buscarMelhorJogadorDoTime(Long idTime) {
-		throw new UnsupportedOperationException();
+		buscarTime(idTime); //se id existe
+		Comparator<Jogador> nvHAB = Comparator.comparingLong(Jogador::getNivelHabilidade);
+
+		return jogadores
+				.stream()
+				.max(nvHAB)
+				.get().getId();
 	}
 
 	public Long buscarJogadorMaisVelho(Long idTime) {
@@ -147,7 +153,14 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 				.thenComparingLong(Jogador::getIdTime)
 				.reversed();
 
-		throw new UnsupportedOperationException();
+		return jogadores.stream()
+				.sorted(habilidoso)
+				.limit(top)
+				.mapToLong(Jogador::getId)
+				.boxed()
+				.collect(Collectors.toList());
+
+
 	}
 
 	protected Jogador buscarJoga(Long id){
